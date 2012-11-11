@@ -25,7 +25,8 @@ repository and manually invoke `composer` using the shipped `composer.phar`:
 
     cd my/project/dir
     git clone git://github.com/awelters/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
+    mv ZendSkeletonApplication zf2-tutorial
+    cd zf2-tutorial
     php composer.phar self-update
     php composer.phar install
 
