@@ -41,7 +41,8 @@ database username and password.
 
 Virtual Host
 ------------
-Set up a virtual host configuration similar to this:
+Add `zf2-tutorial.localhost localhost` to your hosts config, flush your dns cache,
+then set up a virtual host configuration in Apache similar to this:
 
 	<VirtualHost *:80>
     	ServerName zf2-tutorial.localhost
