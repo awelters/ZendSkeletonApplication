@@ -34,41 +34,41 @@ available.)
 
 Database
 ------------
-Run the script ./database_script/zf2tutorial.sql and then rename the file
-./config/autoload/local.php.dist to local.php before adding your
+Run the script `./database_script/zf2tutorial.sql` and then rename the file
+`./config/autoload/local.php.dist` to `local.php` before adding your
 database username and password.
 
 Virtual Host
 ------------
 Set up a virtual host configuration similar to this:
 
-<VirtualHost *:80>
-    ServerName zf2-tutorial.localhost
-    ServerAdmin you@youremail.com
-    DocumentRoot my/project/dir/zf2-tutorial/public
-    SetEnv APPLICATION_ENV "development"
-    <Directory my/project/dir/zf2-tutorial/public>
-        DirectoryIndex index.php
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-    </Directory>
+	<VirtualHost *:80>
+    	ServerName zf2-tutorial.localhost
+    	ServerAdmin you@youremail.com
+    	DocumentRoot my/project/dir/zf2-tutorial/public
+    	SetEnv APPLICATION_ENV "development"
+    	<Directory my/project/dir/zf2-tutorial/public>
+       		DirectoryIndex index.php
+        	AllowOverride All
+        	Order allow,deny
+        	Allow from all
+    	</Directory>
     
-    ErrorLog my/project/dirzf2-tutorial/logs/error.log
+    	ErrorLog my/project/dirzf2-tutorial/logs/error.log
   
-    <IfModule log_config_module>
-		CustomLog my/project/dir/zf2-tutorial/logs/access.log combinedio
-	</IfModule>
+    	<IfModule log_config_module>
+			CustomLog my/project/dir/zf2-tutorial/logs/access.log combinedio
+		</IfModule>
 	
-	php_value error_log my/project/dir/zf2-tutorial/logs/php_error.log
-</VirtualHost>
+		php_value error_log my/project/dir/zf2-tutorial/logs/php_error.log
+	</VirtualHost>
 
 Virtual Host
 ------------
-./config/application.config.php
+	./config/application.config.php
 
 Memcache
 ------------
 The memcache version of the Album module will not work unles you have the
 memcache module installed for php and the memcache daemon running on
-your local machine listening on the standard port, 11211.
+your local machine, `localhost`, listening on the standard port, `11211`.
