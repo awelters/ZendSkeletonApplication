@@ -65,10 +65,6 @@ then set up a virtual host configuration in Apache similar to this:
 		php_value error_log my/project/dir/zf2-tutorial/logs/php_error.log
 	</VirtualHost>
 
-Virtual Host
-------------
-	./config/application.config.php
-
 Memcache
 ------------
 The memcache version of the Album module will not work unles you have the
