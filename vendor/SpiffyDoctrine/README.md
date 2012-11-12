@@ -8,17 +8,6 @@ The following features are intended to work out of the box:
   - Using a SQL Logger.
   - Configuration of annotations via registry files and/or namespaces (such as Gedmo DoctrineExtensions).
 
-## Installation
-
-The simplest way to install is to clone the repository into your /modules directory add the 
-SpiffyDoctrine key to your modules array.
-
-  1. cd my/project/folder
-  2. git clone https://SpiffyJr@github.com/SpiffyJr/SpiffyDoctrine.git modules/SpiffyDoctrine --recursive
-  3. open my/project/folder/configs/application.config.php and add 'SpiffyDoctrine' to your 'modules' parameter.
-  4. Alter the configuration (most likely your connection and entities path(s)) by adding the required changes to 
-     my/project/folder/modules/Application/module.config.php.
-
 ## Example standard configuration
 
     // modules/Application/module.config.php
@@ -63,8 +52,3 @@ If for some reason you want access to additional objects such as the EVM, Cache,
 you can get them from the SpiffyDoctrine\Container\Container.
 
     $container = $this->getLocator()->get('doctrine-container');
-
-
-## Doctrine CLI
-The Doctrine CLI has been pre-configured and is available in SpiffyDoctrine\bin. It should work as
-is without any special configuration required.
