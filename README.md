@@ -3,7 +3,7 @@ ZendSkeletonApplication
 
 Introduction
 ------------
-This is a application using the ZF2 MVC layer and module systems. This
+This is an application using the ZF2 MVC layer and module systems. This
 application is meant to be used as a starting place for those looking to
 progress past the ZendSkeletonApplication.  It is an update to the original
 ZendSkeletonApplication, but with improvements and additional examples.
@@ -37,7 +37,8 @@ Database
 ------------
 Run the script `./database_script/zf2tutorial.sql` and then rename the file
 `./config/autoload/local.php.dist` to `local.php` before adding your
-database username and password.
+database username and password.  The database should be mysql running on
+`localhost` port `3306`.
 
 Virtual Host
 ------------

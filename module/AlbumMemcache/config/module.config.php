@@ -34,33 +34,55 @@ return array(
         ),
     ),
     
-    // Doctrine config
-    'doctrine' => array(
-        'driver' => array(
-            __NAMESPACE__ . '_driver' => array(
-                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-                'cache' => 'memcache',
-                'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity')
-            ),
-            'orm_default' => array(
-                'drivers' => array(
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
-                )
-            )
-        ),
-        'configuration' => array(
-            'orm_default' => array(
-                'metadata_cache'    => 'memcache',
-                'query_cache'       => 'memcache',
-                'result_cache'      => 'memcache',
-
-                'driver'            => 'orm_default',
-
-                'generate_proxies'  => true,
-                'proxy_dir'         => 'data/DoctrineORMModule/Proxy',
-                'proxy_namespace'   => 'DoctrineORMModule\Proxy',
-                'filters'           => array()
-            )
-        )
-    )
+    'di' => array(
+		'instance' => array(
+			'alias' => array(
+				'em-' . __NAMESPACE__ => 'Doctrine\ORM\EntityManager',
+			),
+			'em-' . __NAMESPACE__ => array(
+				'parameters' => array(
+					'name' => __NAMESPACE__,
+					'container' => 'doctrine-container',
+				),
+			),
+			'doctrine-container' => array(
+				'parameters' => array(
+					'evm' => array(
+						__NAMESPACE__ => array(
+							'class' => 'Doctrine\Common\EventManager',
+							'subscribers' => array(),
+						),
+					),
+					'em' => array(
+						__NAMESPACE__ => array(
+							'cache' => array(
+								'metadata' => __NAMESPACE__,
+								'query' => __NAMESPACE__,
+								'result' => __NAMESPACE__,
+							),
+							'connection' => __NAMESPACE__,
+							'logger' => null,
+							'proxy' => array(
+								'generate' => true,
+								'dir' => '/../../../data/DoctrineORMModule/Proxy',
+								'namespace' => __NAMESPACE__ . '\Proxy',
+							),
+							'registry' => array(
+								'files' => array(),
+								'namespaces' => array(),
+							),
+							'driver' => array(
+								'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+								'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'),
+								'reader' => array(
+									'class' => 'Doctrine\Common\Annotations\AnnotationReader',
+									'aliases' => array(),
+								),
+							),
+						),
+					),
+				),
+			),
+		),
+	),
 );

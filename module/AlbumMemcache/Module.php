@@ -2,8 +2,6 @@
 // module/AlbumMemcache/Module.php
 namespace AlbumMemcache;
 
-use \Memcache;
-
 class Module
 {
     public function getAutoloaderConfig()
@@ -27,14 +25,6 @@ class Module
     
     public function getServiceConfig()
     {
-        return array(
-			'factories' => array(
-				'my_memcache_alias' => function($sm) {
-					$memcache = new \Memcache();
-					$memcache->connect('localhost', 11211);
-					return $memcache;
-				} 
-			)
-        );
+        return array();
     }
 }

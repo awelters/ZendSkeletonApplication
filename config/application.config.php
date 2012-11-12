@@ -7,6 +7,7 @@ return array(
         'Album',
         'AlbumORM',
         'AlbumORMAnnotation',
+        'SpiffyDoctrine',
         'AlbumMemcache',
        	'AlbumRESTful'
     ),

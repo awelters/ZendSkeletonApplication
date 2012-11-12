@@ -45,4 +45,29 @@ return array(
             )
         )
     ),
+    'di' => array(
+		'instance' => array(
+			'doctrine-container' => array(
+				'parameters' => array(
+					'connection' => array(
+						'AlbumMemcache' => array(
+							'evm' => 'AlbumMemcache',
+							'dbname' => 'zf2tutorial',
+							'user' => '',
+							'password' => '',
+							'host' => 'localhost',
+							'driver' => 'pdo_mysql',
+						),
+					),
+					'cache' => array(
+						'AlbumMemcache' => array(
+							'class' => 'Doctrine\Common\Cache\MemcacheCache',
+							'host' => 'localhost',
+							'port' => 11211,
+						),
+					),
+				),
+			),
+		),
+	),
 );
